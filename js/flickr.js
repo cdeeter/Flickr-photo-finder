@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  $("#search").click(function() {
+    $(this).val('');
+  });
+
   var $submitBtn  = $("#submit"); 
   $($submitBtn).click(function(evt) {
     evt.preventDefault();
