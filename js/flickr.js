@@ -50,7 +50,7 @@ $(document).ready(function() {
             
             //alert if no search results returned
             if (photoHTML == "<ul></ul>") {
-                $photos.html("<p>Your search returned 0 results</p>");
+                $photos.html("<p>Your search returned no results</p>");
             }
         }
         };
