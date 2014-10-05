@@ -60,6 +60,7 @@ $(document).ready(function() {
         
     });
     
+    //press enter to search
     $($searchBar).keyup(function(event){
 		if(event.keyCode == 13) {
 			$submitBtn.click();
