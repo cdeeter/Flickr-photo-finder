@@ -8,6 +8,7 @@ $(document).ready(function() {
     //global variables
     var $submitBtn  = $("#submit"); 
     var $searchBar = $("#search");
+    var $photos = $("#photos");
     
     //submit button click event
     $submitBtn.click(function(evt) {
@@ -43,13 +44,13 @@ $(document).ready(function() {
             });
             photoHTML += '</ul>';
             //add HTML to the DOM
-            $("#photos").html(photoHTML);
+            $photos.html(photoHTML);
             //re-enable submit button
             $submitBtn.prop('disabled', false).val("Submit");
             
             //alert if no search results returned
             if (photoHTML == "<ul></ul>") {
-                $("#photos").html("<p>Your search returned 0 results</p>");
+                $photos.html("<p>Your search returned 0 results</p>");
             }
         }
         };
