@@ -47,6 +47,7 @@
 
 body {
   min-width: 320px;
+
 }
 
 @media screen {
@@ -96,6 +97,7 @@ body {
 
   body {
     min-width: 320px;
+    background-color: black;
   }
 }
 @media screen and (min-width: 1080px) {
@@ -1741,6 +1743,8 @@ time, mark, audio, video {
   font: inherit;
   font-size: 100%;
   vertical-align: baseline;
+   text-align: center;
+    
 }
 
 html {
@@ -1779,7 +1783,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
-  background: #edeff0;
+  background: black;
   padding: 50px 0 0;
   font-family: "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 62.5%;
@@ -1790,7 +1794,7 @@ body {
 }
 
 .contained {
-  background: white;
+  background: black;
   padding: 30px 15px;
   margin-bottom: 30px;
   position: relative;
@@ -1800,13 +1804,11 @@ body {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
 .heading {
   margin-bottom: 20px;
+  color: white;
 }
 
 h1,
@@ -1814,7 +1816,7 @@ h2 {
   font-size: 2.4em;
   font-weight: 500;
   margin-bottom: 8px;
-  color: #384047;
+  color: pink;
   line-height: 1.2;
 }
 
@@ -1825,12 +1827,7 @@ aside h2 {
   margin-bottom: 15px;
 }
 
-p, label {
-  color: #8d9aa5;
-  font-size: 1.4em;
-  margin-bottom: 15px;
-  line-height: 1.4;
-}
+
 
 a {
   color: #3f8abf;
@@ -1973,9 +1970,8 @@ ul.filter-select button:after {
 #photos .image {
   display: block;
   min-height: 240px;
-  background: #edeff0;
   text-align: center;
-  height: 260px;
+  height: 240px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -2064,4 +2060,58 @@ footer p {
 
 input[type=search] {
   font-size: 2em;
+
 }
+
+#search {
+  background-color: black;
+  height: 25px;
+  width: 250px;
+  color: white;
+  border: 3px dotted pink;
+  font-family: Arial, Tahoma;
+  font-size: 16px;
+  padding: 8px;
+}
+
+#search:active {
+    border-color: white;
+}
+
+#submit {
+  background-color: black;
+  color: pink;
+  height: 45px;
+  width: 125px;
+  font-family: Arial, Tahoma;
+  font-weight: bold;
+  font-size: 18px;
+  border-right: 5px solid pink;
+  border-bottom: 5px solid pink;
+  padding: 5px;
+}
+
+
+
+h1 {
+    font-family: "Arial Black", Tahoma;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    letter-spacing: -1px;
+}
+
+p {
+    color: grey;
+    font-family: "Arial Black", Arial, Tahoma;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.heading {
+    width: 550px;
+    padding: 30px;
+    border: 20px solid #C0C0C0;
+    margin: 0 auto;
+}
+

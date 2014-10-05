@@ -1,32 +1,71 @@
 $(document).ready(function() {
 
-  $("#search").click(function() {
-    $(this).val('');
-  });
+    //clear search text on click
+    $("#search").click(function() {
+        $(this).val('');
+    });
 
-  var $submitBtn  = $("#submit"); 
-  $($submitBtn).click(function(evt) {
-    evt.preventDefault();
-    $submitBtn.prop('disabled', true).val("Searching...");
-    var searchTerm = $("#search").val();    
-    var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-    var flickrOptions = {
-      tags: searchTerm,
-      format: "json"    
-    };
-    function displayPhotos(data) {
-      var photoHTML = '<ul>';
-      $.each(data.items, function(i, photo) {
-        photoHTML += '<li class="grid-25 tablet-grid-50">';
-        photoHTML += '<a href="' + photo.link + '" class="image">';
-        photoHTML += '<img src="' + photo.media.m + '"></a></li>';
-       });
-        photoHTML += "</ul>";
-      $("#photos").html(photoHTML);
-      $submitBtn.prop('disabled', false).val("Submit");
-    }
-    $.getJSON(flickrAPI, flickrOptions, displayPhotos);
-  });
+    //global variables
+    var $submitBtn  = $("#submit"); 
+    var $searchBar = $("#search");
+    
+    //submit button click event
+    $submitBtn.click(function(evt) {
+        
+        evt.preventDefault();
+        
+        //let user know if search is blank
+        if ($searchBar.val() === "") {
+            alert("Please enter a tag!");
+            $submitBtn.prop('disabled', false);
+        } else {
+        
+        //change button text while AJAX is loading
+        $submitBtn.prop('disabled', true).val("Searching...");
+        
+        //tag entered in search bar
+        var searchTerm = $("#search").val();  
+        //API link for $.getJSON method
+        var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+        //data to be sent for $.getJSON method
+        var flickrOptions = {
+            tags: searchTerm,
+            format: "json"    
+        };
+        //callback function for $.getJSON method
+        function displayPhotos(data) {
+            //html to put photos returned from $.getJSON method in place
+            var photoHTML = '<ul>';
+            $.each(data.items, function(i, photo) {
+                photoHTML += '<li class="grid-25 tablet-grid-50">';
+                photoHTML += '<a href="' + photo.link + '" class="image" target="_blank">';
+                photoHTML += '<img src="' + photo.media.m + '"></a></li>';
+            });
+            photoHTML += '</ul>';
+            //add HTML to the DOM
+            $("#photos").html(photoHTML);
+            //re-enable submit button
+            $submitBtn.prop('disabled', false).val("Submit");
+            
+            //alert if no search results returned
+            if (photoHTML == "<ul></ul>") {
+                $("#photos").html("<p>Your search returned 0 results</p>");
+            }
+        }
+        };
+        
+        //load AJAX
+        $.getJSON(flickrAPI, flickrOptions, displayPhotos);
+        
+    });
+    
+    $($searchBar).keyup(function(event){
+		if(event.keyCode == 13) {
+			$submitBtn.click();
+		}
+	});
+    
+
  
   }); 
     
