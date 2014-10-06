@@ -2115,3 +2115,9 @@ p {
     margin: 0 auto;
 }
 
+#clear {
+  color: white;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+

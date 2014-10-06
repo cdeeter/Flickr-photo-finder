@@ -9,6 +9,7 @@ $(document).ready(function() {
     var $submitBtn  = $("#submit"); 
     var $searchBar = $("#search");
     var $photos = $("#photos");
+    var $clear = $("#clear");
     
     //submit button click event
     $submitBtn.click(function(evt) {
@@ -67,6 +68,10 @@ $(document).ready(function() {
 		}
 	});
     
+    //clear search results
+    $($clear).click(function() {
+        $("ul").empty();
+    })
 
  
   }); 
